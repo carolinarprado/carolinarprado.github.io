@@ -129,19 +129,19 @@
       margin-top: 30px;
     }
 
-    .carousel-frame {
-      width: 420px;
-      height: 560px;     
-      overflow: hidden;  
-      border-radius: 6px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
+  .carousel-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: width 0.3s ease, height 0.3s ease;
+}
 
-    .carousel-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; 
-    }
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
     .carousel-btn {
       background: none;
@@ -234,7 +234,7 @@
   <div class="carousel">
     <button class="carousel-btn prev">&#10094;</button>
 
-    <div class="carousel-frame">
+    <div class="carousel-frame" id="carousel-frame">
       <img
         id="carousel-image"
         src="capa.jpeg"
@@ -275,28 +275,46 @@
 </script>
 
 <script>
-  // carrossel: lista de imagens
+  // carrossel com tamanhos diferentes por imagem
   const images = [
-    "capa.jpeg",
-    "contracapa.jpeg",
-    "hist1.jpeg",
-    "hist2.jpeg",
-    "hist3.jpeg"
+    // CAPA – vertical
+    { src: "capa.jpeg", width: 420, height: 560 },
+
+    // PÁGINAS INTERNAS – horizontais
+    { src: "hist1.jpeg", width: 600, height: 420 },
+    { src: "hist2.jpeg", width: 600, height: 420 },
+    { src: "hist3.jpeg", width: 600, height: 420 },
+
+    // CONTRACAPA – vertical
+    { src: "contracapa.jpeg", width: 420, height: 560 }
   ];
 
   let currentIndex = 0;
+
   const carouselImage = document.getElementById("carousel-image");
+  const carouselFrame = document.getElementById("carousel-frame");
+
+  function updateCarousel() {
+    const img = images[currentIndex];
+    carouselImage.src = img.src;
+    carouselFrame.style.width = img.width + "px";
+    carouselFrame.style.height = img.height + "px";
+  }
 
   document.querySelector(".carousel-btn.next").addEventListener("click", () => {
     currentIndex = (currentIndex + 1) % images.length;
-    carouselImage.src = images[currentIndex];
+    updateCarousel();
   });
 
   document.querySelector(".carousel-btn.prev").addEventListener("click", () => {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
-    carouselImage.src = images[currentIndex];
+    updateCarousel();
   });
+
+  // inicializa corretamente
+  updateCarousel();
 </script>
+
 
 </body>
 </html>
