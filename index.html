@@ -262,15 +262,17 @@
   const sections = document.querySelectorAll(".tab-content");
 
   links.forEach(link => {
-    link.addEventListener("click", () => {
-      const tab = link.getAttribute("data-tab");
-
+     link.addEventListener("click", () => {
+  const tab = link.getAttribute("data-tab");
       links.forEach(l => l.classList.remove("active"));
       sections.forEach(s => s.classList.remove("active"));
 
       link.classList.add("active");
       document.getElementById(tab).classList.add("active");
     });
+    if (tab === "books") {
+  setTimeout(refreshCarouselIfVisible, 50);
+}
   });
 </script>
 
@@ -300,6 +302,13 @@
     carouselFrame.style.width = img.width + "px";
     carouselFrame.style.height = img.height + "px";
   }
+  function refreshCarouselIfVisible() {
+  const booksSection = document.getElementById("books");
+  if (booksSection.classList.contains("active")) {
+    updateCarousel();
+  }
+}
+
 
   document.querySelector(".carousel-btn.next").addEventListener("click", () => {
     currentIndex = (currentIndex + 1) % images.length;
