@@ -198,6 +198,32 @@ PhD candidate in Economics at Insper
   </ul>
 </section>  
 
+  <section id="books" class="tab-content">
+  <h2>Books</h2>
+
+  <!--  nome do livro -->
+  <p class="book-title">
+    <strong>Planejamento e Transformação: 4º Ano</strong><br>
+    <span class="book-details">
+      Gênio das Finanças – Arco Educação, 2023
+    </span>
+  </p>
+
+  <div class="carousel">
+    <button class="carousel-btn prev">&#10094;</button>
+
+    <!-- imagem inicial -->
+    <img
+      id="carousel-image"
+      src="capa.jpeg"
+      alt="Planejamento e Transformação – 4º Ano"
+      class="carousel-image"
+    >
+
+    <button class="carousel-btn next">&#10095;</button>
+  </div>
+</section>
+  
   <!-- CONTACT -->
   <section id="contact" class="tab-content">
     <h2>Contact</h2>
@@ -234,6 +260,30 @@ PhD candidate in Economics at Insper
       });
     });
   </script>
+
+  <script>
+  <!-- carrosel: lista de imagens -->
+  const images = [
+    "capa.jpeg",
+    "contracapa.jpeg",
+    "hist1.jpeg",
+    "hist2.jpeg",
+    "hist3.jpeg"
+  ];
+
+  let currentIndex = 0;
+  const carouselImage = document.getElementById("carousel-image");
+
+  document.querySelector(".carousel-btn.next").addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    carouselImage.src = images[currentIndex];
+  });
+
+  document.querySelector(".carousel-btn.prev").addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    carouselImage.src = images[currentIndex];
+  });
+</script>
 
 </body>
 </html>
