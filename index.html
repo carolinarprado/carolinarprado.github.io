@@ -11,205 +11,51 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --accent:  #8b3a1e;
-      --bg:      #faf7f4;
-      --fg:      #1e150f;
-      --muted:   #9a7060;
-      --border:  #e8ddd4;
-      --card:    #f2ebe4;
-      --fs:      1.05;
+      --accent: #1a4a6b;
+      --bg:     #f8f7f3;
+      --fg:     #1c1c1c;
+      --muted:  #7a8499;
+      --border: #dde0e8;
+      --card:   #eef0f5;
     }
 
     body {
       font-family: 'EB Garamond', Georgia, serif;
       background: var(--bg);
       color: var(--fg);
-      font-size: calc(16px * var(--fs));
+      font-size: 17px;
       line-height: 1.7;
       min-height: 100vh;
     }
 
-    /* ── Layout ── */
-    .layout {
-      display: flex;
-      min-height: 100vh;
-    }
+    .tab-section { display: none; }
+    .tab-section.active { display: block; }
 
-    /* ── Sidebar ── */
-    .sidebar {
-      width: 240px;
-      min-width: 240px;
-      border-right: 1px solid var(--border);
-      padding: 44px 28px 40px;
+    .nav-link {
+      padding: 0 16px;
+      height: 72px;
       display: flex;
-      flex-direction: column;
-      gap: 28px;
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      overflow-y: auto;
-    }
-
-    .sidebar-identity {
-      display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 16px;
-    }
-
-    .sidebar-photo {
-      width: 160px;
-      height: 195px;
-      border-radius: 4px;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-      flex-shrink: 0;
-    }
-
-    .sidebar-name-block {
-      text-align: center;
-      width: 100%;
-    }
-
-    .sidebar-name {
-      font-size: 1.12em;
-      font-weight: 600;
-      line-height: 1.2;
-      text-align: center;
-    }
-
-    .sidebar-subtitle {
-      font-size: 0.78em;
-      color: var(--muted);
-      margin-top: 4px;
-      line-height: 1.45;
-      font-style: italic;
-      text-align: center;
-    }
-
-    /* ── Nav ── */
-    nav {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    nav a {
-      display: block;
-      padding: 7px 10px;
-      border-radius: 4px;
-      font-size: 0.88em;
+      font-size: 0.87em;
       color: var(--muted);
       text-decoration: none;
-      border-left: 2px solid transparent;
-      transition: color 0.15s, border-color 0.15s;
-      cursor: pointer;
-      font-family: inherit;
-      text-transform: capitalize;
-    }
-
-    nav a:hover { color: var(--fg); }
-    nav a.active { color: var(--accent); font-weight: 600; border-left-color: var(--accent); }
-
-    /* ── Sidebar footer ── */
-    .sidebar-footer {
-      margin-top: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      font-size: 0.75em;
-      color: var(--muted);
-    }
-
-    .sidebar-footer a {
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-    .sidebar-footer a:hover { color: var(--accent); }
-
-    /* ── Main content ── */
-    .main {
-      flex: 1;
-      padding: 52px 60px;
-      max-width: 680px;
-    }
-
-    /* ── Section titles ── */
-    .section-title {
-      font-size: 1.85em;
-      font-weight: 400;
-      margin-bottom: 24px;
-      letter-spacing: -0.01em;
-    }
-
-    /* ── About ── */
-    .about-text {
-      font-size: 1em;
-      line-height: 1.8;
-    }
-
-    .fields-card {
-      margin-top: 28px;
-      padding: 16px 20px;
-      background: var(--card);
-      border-radius: 5px;
-      border-left: 3px solid var(--accent);
-    }
-
-    .fields-label {
-      font-size: 0.75em;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-
-    .fields-list {
-      font-size: 0.92em;
-      font-style: italic;
-      color: var(--fg);
-    }
-
-    /* ── Research ── */
-    .paper {
-      margin-bottom: 28px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .paper-header {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
-
-    .paper-title {
-      font-size: 1.02em;
-      line-height: 1.5;
-      flex: 1;
-    }
-
-    .paper-status {
-      font-size: 0.72em;
-      background: color-mix(in srgb, var(--accent) 12%, transparent);
-      color: var(--accent);
-      padding: 3px 9px;
-      border-radius: 20px;
+      border-bottom: 2px solid transparent;
+      transition: color .15s, border-color .15s;
       white-space: nowrap;
-      margin-top: 3px;
-      flex-shrink: 0;
     }
+    .nav-link:hover { color: var(--fg); }
+    .nav-link.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
 
-    .paper-actions {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-top: 4px;
+    .paper-link {
+      font-size: 0.82em;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 3px;
+      padding: 3px 10px;
+      text-decoration: none;
+      transition: background .15s, color .15s;
     }
+    .paper-link:hover { background: var(--accent); color: #fff; }
 
     .abstract-toggle {
       background: none;
@@ -219,113 +65,9 @@
       font-size: 0.82em;
       font-family: inherit;
       padding: 0;
-      transition: opacity 0.15s;
+      transition: opacity .15s;
     }
     .abstract-toggle:hover { opacity: 0.7; }
-
-    .paper-link {
-      font-size: 0.82em;
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      border-radius: 3px;
-      padding: 3px 10px;
-      text-decoration: none;
-      transition: background 0.15s, color 0.15s;
-    }
-    .paper-link:hover { background: var(--accent); color: #fff; }
-
-    .abstract-text {
-      font-size: 0.88em;
-      color: var(--muted);
-      line-height: 1.7;
-      font-style: normal;
-      text-align: justify;
-      text-wrap: pretty;
-      margin-top: 12px;
-      border-left: 2px solid var(--border);
-      padding-left: 14px;
-    }
-
-    /* ── Teaching ── */
-    .teaching-group {
-      margin-bottom: 28px;
-    }
-
-    .teaching-group-label {
-      font-size: 0.73em;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .teaching-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: 8px 0;
-      border-bottom: 1px solid var(--border);
-      gap: 16px;
-    }
-
-    .teaching-course {
-      font-size: 0.93em;
-      font-weight: 600;
-    }
-
-    .teaching-role {
-      font-size: 0.8em;
-      color: var(--muted);
-      margin-left: 6px;
-      font-weight: 400;
-    }
-
-    .teaching-meta {
-      font-size: 0.78em;
-      color: var(--muted);
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    /* ── Books ── */
-    .book-meta {
-      margin-bottom: 20px;
-    }
-
-    .book-meta-label {
-      font-size: 0.73em;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-
-    .book-title-text {
-      font-size: 1em;
-      font-weight: 600;
-      line-height: 1.4;
-    }
-
-    .book-publisher {
-      font-size: 0.83em;
-      color: var(--muted);
-      margin-top: 4px;
-      font-style: italic;
-    }
-
-    /* ── Carousel ── */
-    .carousel-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-top: 8px;
-    }
-
-    .carousel-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
 
     .carousel-btn {
       background: none;
@@ -340,247 +82,180 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      transition: border-color 0.15s, color 0.15s;
+      transition: border-color .15s, color .15s;
     }
     .carousel-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-    .carousel-frame {
-      overflow: hidden;
-      position: relative;
-      border-radius: 3px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-      background: #f0ede8;
-      flex-shrink: 0;
-      transition: width 0.28s ease, height 0.28s ease;
-    }
-
-    .carousel-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .carousel-img.entering {
-      transform: translateX(0);
-      opacity: 1;
-      transition: transform 0.28s ease, opacity 0.28s ease;
-    }
-
-    .carousel-img.exiting {
-      transform: translateX(var(--exit-dir));
-      opacity: 0;
-      transition: transform 0.28s ease, opacity 0.28s ease;
-    }
-
-    .carousel-counter {
-      font-size: 0.73em;
-      color: var(--muted);
-      padding-left: 48px;
-    }
-
-    /* ── Contact ── */
-    .contact-list {
+    .teaching-row {
       display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-top: 4px;
-    }
-
-    .contact-row {
-      display: flex;
-      gap: 14px;
+      justify-content: space-between;
       align-items: baseline;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+      gap: 16px;
     }
 
-    .contact-label {
-      font-size: 0.73em;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      width: 64px;
-      flex-shrink: 0;
-    }
-
-    .contact-link {
-      color: var(--accent);
-      font-size: 0.95em;
-      text-decoration: none;
-      transition: opacity 0.15s;
-    }
-    .contact-link:hover { opacity: 0.75; }
-
-    /* ── Tab sections ── */
-    .tab-section { display: none; }
-    .tab-section.active { display: block; }
-
-    /* ── Responsive ── */
-    @media (max-width: 700px) {
-      .layout { flex-direction: column; }
-      .sidebar { width: 100%; height: auto; position: static; border-right: none; border-bottom: 1px solid var(--border); padding: 28px 20px 20px; flex-direction: row; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
-      .sidebar-identity { flex-direction: row; align-items: flex-start; gap: 16px; }
-      .sidebar-photo { width: 80px; height: 98px; }
-      .sidebar-name { text-align: left; }
-      .sidebar-subtitle { text-align: left; }
-      nav { flex-direction: row; flex-wrap: wrap; gap: 0; }
-      nav a { border-left: none; border-bottom: 2px solid transparent; padding: 5px 10px; }
-      nav a.active { border-left: none; border-bottom-color: var(--accent); }
-      .sidebar-footer { flex-direction: row; gap: 16px; }
-      .main { padding: 32px 20px; }
+    @media (max-width: 680px) {
+      .header-inner { flex-direction: column; gap: 0; padding: 16px 20px 0; }
+      .header-nav { overflow-x: auto; }
+      .main-content { padding: 32px 20px; }
     }
   </style>
 </head>
 <body>
 
-<div class="layout">
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="sidebar-identity">
-      <img src="assets/photo.png" alt="Carolina Prado" class="sidebar-photo" />
-      <div class="sidebar-name-block">
-        <div class="sidebar-name">Carolina Prado</div>
-        <div class="sidebar-subtitle">PhD Candidate in Economics<br>Insper</div>
+<!-- ── Header ── -->
+<header style="border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 10;">
+  <div class="header-inner" style="max-width: 860px; margin: 0 auto; padding: 0 48px; display: flex; justify-content: space-between; align-items: stretch; gap: 24px; min-height: 72px;">
+
+    <div style="display: flex; align-items: center; gap: 16px; flex-shrink: 0; padding: 16px 0;">
+      <div>
+        <div style="font-size: 1.02em; font-weight: 600; line-height: 1.2;">Carolina Prado</div>
+        <div style="font-size: 0.73em; color: var(--muted); line-height: 1.3;">PhD Candidate in Economics · Insper</div>
       </div>
     </div>
 
-    <nav id="main-nav">
-      <a href="#" class="tab-link active" data-tab="about">About</a>
-      <a href="#" class="tab-link" data-tab="research">Research</a>
-      <a href="#" class="tab-link" data-tab="teaching">Teaching</a>
-      <a href="#" class="tab-link" data-tab="books">Books</a>
-      <a href="#" class="tab-link" data-tab="contact">Contact</a>
-      <a href="/cv.pdf" target="_blank" rel="noopener">CV ↗</a>
+    <nav class="header-nav" id="main-nav" style="display: flex; align-items: stretch; gap: 0;">
+      <a href="#" class="nav-link tab-link active" data-tab="about">About</a>
+      <a href="#" class="nav-link tab-link" data-tab="research">Research</a>
+      <a href="#" class="nav-link tab-link" data-tab="teaching">Teaching</a>
+      <a href="#" class="nav-link tab-link" data-tab="books">Books</a>
+      <a href="/cv.pdf" target="_blank" rel="noopener" class="nav-link">CV ↗</a>
     </nav>
 
-    <div class="sidebar-footer">
-      <a href="mailto:carolinarap@al.insper.edu.br">✉ Email</a>
-      <a href="https://github.com/carolinarprado" target="_blank" rel="noopener">GitHub ↗</a>
-    </div>
-  </aside>
+  </div>
+</header>
 
-  <!-- Main -->
-  <main class="main">
+<!-- ── Main ── -->
+<main class="main-content" style="max-width: 860px; margin: 0 auto; padding: 52px 48px 80px;">
 
-    <!-- About -->
-    <section id="about" class="tab-section active">
-      <h2 class="section-title">About</h2>
-      <p class="about-text">I am a fourth-year PhD candidate in Economics at Insper. My research interests lie in microeconomics, political economy, and social media.</p>
-      <div class="fields-card">
-        <div class="fields-label">Research Interests</div>
-        <div class="fields-list">Microeconomics · Political Economy · Social Media</div>
+  <!-- About -->
+  <section id="about" class="tab-section active">
+    <h2 style="font-size: 1.75em; font-weight: 400; margin-bottom: 28px; letter-spacing: -0.01em;">About</h2>
+    <div style="display: flex; gap: 40px; align-items: flex-start;">
+      <img src="assets/photo.png" alt="Carolina Prado" style="width: 160px; height: 195px; border-radius: 4px; object-fit: cover; object-position: center top; flex-shrink: 0;" />
+      <div>
+        <p style="font-size: 1em; line-height: 1.85;">I am a fourth-year PhD candidate in Economics at Insper. My research interests lie in microeconomics, political economy, and social media.</p>
+        <div style="margin-top: 28px; padding: 16px 20px; background: var(--card); border-radius: 5px; border-left: 3px solid var(--accent);">
+          <div style="font-size: 0.73em; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 6px;">Research Interests</div>
+          <div style="font-size: 0.93em; color: var(--fg);">Microeconomics · Political Economy · Social Media</div>
+        </div>
+        <div style="margin-top: 28px; display: flex; gap: 20px;">
+          <a href="/cdn-cgi/l/email-protection#620103100d0e0b0c0310031222030e4c0b0c111207104c0706174c0010" style="font-size: 0.85em; color: var(--accent); text-decoration: none;">✉ Email</a>
+          <a href="https://github.com/carolinarprado" target="_blank" rel="noopener" style="font-size: 0.85em; color: var(--accent); text-decoration: none;">GitHub ↗</a>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Research -->
-    <section id="research" class="tab-section">
-      <h2 class="section-title">Research</h2>
+  <!-- Research -->
+  <section id="research" class="tab-section">
+    <h2 style="font-size: 1.75em; font-weight: 400; margin-bottom: 32px; letter-spacing: -0.01em;">Research</h2>
 
-      <div class="paper">
-        <div class="paper-header">
-          <em class="paper-title">Candidate Behavior in Local Elections: Campaigning in the Digital Age</em>
-          <span class="paper-status">Working Paper</span>
-        </div>
-        <div class="paper-actions">
-          <button class="abstract-toggle" id="abstract-btn" aria-expanded="false">▼ Show abstract</button>
-          <a href="https://ssrn.com/abstract=6303260" target="_blank" rel="noopener" class="paper-link">Draft ↗</a>
-        </div>
-        <p class="abstract-text" id="abstract-text" style="display:none;">
-          This paper studies how electoral institutions shape candidates' digital campaign strategies, exploiting Brazil's 200,000-voter runoff threshold in a regression discontinuity design. We combine official campaign finance records from the 2024 municipal elections with high-frequency Instagram advertising data from Meta's Marketing API — 57,677 ads matched to 540 candidates. We document three patterns of digital campaigning: near-instantaneous ad deployment, a strong preference for broad demographic reach over micro-targeting, and a sharp escalation in advertising intensity as election day approaches. Runoff-eligible candidates reduce their digital boosting budget share by approximately 4 p.p in the first round, with the effect concentrated in the final weeks and driven entirely by competitive candidates. No other expenditure category responds to the threshold. This strategic reallocation operates through scale rather than content: candidates above the threshold accumulate approximately 866,000 fewer impressions without altering the format, duration, or cost structure of individual ads. Consistent with this timing behavior, we find that an increase of BRL 100,000 in digital boosting is associated with a 5 p.p increase in vote share, with total reach — not content — driving electoral returns. These findings reveal digital advertising as a strategically flexible instrument whose near-zero marginal deployment cost enables intertemporal allocation decisions that traditional media cannot accommodate.
+    <div style="padding-bottom: 32px; border-bottom: 1px solid var(--border);">
+      <!-- Title + badge -->
+      <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; flex-wrap: wrap;">
+        <span style="font-size: 1.02em; line-height: 1.5; flex: 1; min-width: 200px;">Candidate Behavior in Local Elections: Campaigning in the Digital Age</span>
+        <span style="font-size: 0.72em; background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent); padding: 3px 9px; border-radius: 20px; white-space: nowrap; margin-top: 4px; flex-shrink: 0;">Working Paper</span>
+      </div>
+
+      <!-- Actions -->
+      <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 16px;">
+        <button class="abstract-toggle" id="abstract-btn" aria-expanded="false">▼ Show abstract</button>
+        <a href="https://ssrn.com/abstract=6303260" target="_blank" rel="noopener" class="paper-link">Draft ↗</a>
+        <a href="#" class="paper-link" id="slides-link">Slides ↗</a>
+      </div>
+
+      <!-- Abstract -->
+      <p id="abstract-text" style="display:none; font-size: 0.92em; color: var(--muted); line-height: 1.75; text-align: justify; text-wrap: pretty; border-left: 2px solid var(--border); padding-left: 16px; margin-bottom: 20px;">
+        This paper studies how electoral institutions shape candidates' digital campaign strategies, exploiting Brazil's 200,000-voter runoff threshold in a regression discontinuity design. We combine official campaign finance records from the 2024 municipal elections with high-frequency Instagram advertising data from Meta's Marketing API — 57,677 ads matched to 540 candidates. We document three patterns of digital campaigning: near-instantaneous ad deployment, a strong preference for broad demographic reach over micro-targeting, and a sharp escalation in advertising intensity as election day approaches. Runoff-eligible candidates reduce their digital boosting budget share by approximately 4 p.p in the first round, with the effect concentrated in the final weeks and driven entirely by competitive candidates. No other expenditure category responds to the threshold. This strategic reallocation operates through scale rather than content: candidates above the threshold accumulate approximately 866,000 fewer impressions without altering the format, duration, or cost structure of individual ads. Consistent with this timing behavior, we find that an increase of BRL 100,000 in digital boosting is associated with a 5 p.p increase in vote share, with total reach — not content — driving electoral returns. These findings reveal digital advertising as a strategically flexible instrument whose near-zero marginal deployment cost enables intertemporal allocation decisions that traditional media cannot accommodate.
+      </p>
+
+      <!-- Presentations -->
+      <div style="margin-top: 16px;">
+        <div style="font-size: 0.68em; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 6px;">Presentations</div>
+        <p style="font-size: 0.78em; color: var(--muted); line-height: 1.7; text-wrap: pretty;">
+          Microeconomics Workshop (Insper, São Paulo) · Seminários de Alunos (Insper, São Paulo) · Political Economy WIP (Università Cattolica del Sacro Cuore, Milano) · 9th Doctoral Workshop on the Economics of Digitization (Telecom Paris, Paris) · CESifo Workshop: Digital Platforms — Methods, Policy and Politics (University of Warwick, Birmingham) · 2026 AMA Summer Academic Conference (Denver, Colorado)
         </p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Teaching -->
-    <section id="teaching" class="tab-section">
-      <h2 class="section-title">Teaching</h2>
+  <!-- Teaching -->
+  <section id="teaching" class="tab-section">
+    <h2 style="font-size: 1.75em; font-weight: 400; margin-bottom: 32px; letter-spacing: -0.01em;">Teaching</h2>
 
-      <div class="teaching-group">
-        <div class="teaching-group-label">Graduate</div>
-        <div class="teaching-row">
-          <div><span class="teaching-course">Econometrics II</span><span class="teaching-role">(PhD) — Teaching Assistant</span></div>
-          <span class="teaching-meta">Insper, 2024</span>
-        </div>
+    <div style="margin-bottom: 32px;">
+      <div style="font-size: 0.73em; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 10px;">Graduate</div>
+      <div class="teaching-row">
+        <div><span style="font-size: 0.93em; font-weight: 600;">Econometrics II</span><span style="font-size: 0.8em; color: var(--muted); margin-left: 6px;">(PhD) — Teaching Assistant</span></div>
+        <span style="font-size: 0.78em; color: var(--muted); white-space: nowrap;">Insper, 2024</span>
       </div>
+    </div>
 
-      <div class="teaching-group">
-        <div class="teaching-group-label">Undergraduate</div>
-        <div class="teaching-row">
-          <div><span class="teaching-course">Microeconomics I</span><span class="teaching-role">— Teaching Assistant</span></div>
-          <span class="teaching-meta">Insper, 2025</span>
-        </div>
-        <div class="teaching-row">
-          <div><span class="teaching-course">Competitive and Corporate Strategy</span><span class="teaching-role">— Teaching Assistant</span></div>
-          <span class="teaching-meta">Insper, 2025</span>
-        </div>
-        <div class="teaching-row">
-          <div><span class="teaching-course">Microeconomics II</span><span class="teaching-role">— Teaching Assistant</span></div>
-          <span class="teaching-meta">Insper, 2024</span>
-        </div>
-        <div class="teaching-row">
-          <div><span class="teaching-course">Strategy Economics</span><span class="teaching-role">— Teaching Assistant</span></div>
-          <span class="teaching-meta">FEA-USP, 2019</span>
-        </div>
+    <div style="margin-bottom: 32px;">
+      <div style="font-size: 0.73em; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 10px;">Undergraduate</div>
+      <div class="teaching-row">
+        <div><span style="font-size: 0.93em; font-weight: 600;">Microeconomics I</span><span style="font-size: 0.8em; color: var(--muted); margin-left: 6px;">— Teaching Assistant</span></div>
+        <span style="font-size: 0.78em; color: var(--muted); white-space: nowrap;">Insper, 2025</span>
       </div>
-
-      <div class="teaching-group">
-        <div class="teaching-group-label">Other</div>
-        <div class="teaching-row">
-          <div><span class="teaching-course">Social Impact Measurement</span><span class="teaching-role">— Teaching Assistant (Exec. Ed.)</span></div>
-          <span class="teaching-meta">Insper, 2024</span>
-        </div>
-        <div class="teaching-row">
-          <div><span class="teaching-course">Econometrics</span><span class="teaching-role">— Teaching Assistant (Trainee)</span></div>
-          <span class="teaching-meta">Folha de S.Paulo, 2024</span>
-        </div>
-        <div class="teaching-row">
-          <div><span class="teaching-course">Mathematics</span><span class="teaching-role">— Teacher, Middle School</span></div>
-          <span class="teaching-meta">Prefeitura de Caruaru/PE, 2021–2023</span>
-        </div>
+      <div class="teaching-row">
+        <div><span style="font-size: 0.93em; font-weight: 600;">Competitive and Corporate Strategy</span><span style="font-size: 0.8em; color: var(--muted); margin-left: 6px;">— Teaching Assistant</span></div>
+        <span style="font-size: 0.78em; color: var(--muted); white-space: nowrap;">Insper, 2025</span>
       </div>
-    </section>
-
-    <!-- Books -->
-    <section id="books" class="tab-section">
-      <h2 class="section-title">Books</h2>
-      <div class="book-meta">
-        <div class="book-meta-label">Co-authored</div>
-        <div class="book-title-text">Planejamento e Transformação: 4º Ano</div>
-        <div class="book-publisher">Gênio das Finanças – Arco Educação, 2023</div>
+      <div class="teaching-row">
+        <div><span style="font-size: 0.93em; font-weight: 600;">Microeconomics II</span><span style="font-size: 0.8em; color: var(--muted); margin-left: 6px;">— Teaching Assistant</span></div>
+        <span style="font-size: 0.78em; color: var(--muted); white-space: nowrap;">Insper, 2024</span>
       </div>
-
-      <div class="carousel-wrap">
-        <div class="carousel-row">
-          <button class="carousel-btn" id="prev-btn" aria-label="Anterior">‹</button>
-          <div class="carousel-frame" id="carousel-frame" style="width:300px;height:380px;">
-            <img src="assets/capa.jpeg" alt="Book" class="carousel-img entering" id="carousel-img" />
-          </div>
-          <button class="carousel-btn" id="next-btn" aria-label="Próximo">›</button>
-        </div>
-        <div class="carousel-counter" id="carousel-counter">1 / 5</div>
+      <div class="teaching-row">
+        <div><span style="font-size: 0.93em; font-weight: 600;">Strategy Economics</span><span style="font-size: 0.8em; color: var(--muted); margin-left: 6px;">— Teaching Assistant</span></div>
+        <span style="font-size: 0.78em; color: var(--muted); white-space: nowrap;">FEA-USP, 2019</span>
       </div>
-    </section>
+    </div>
 
-    <!-- Contact -->
-    <section id="contact" class="tab-section">
-      <h2 class="section-title">Contact</h2>
-      <div class="contact-list">
-        <div class="contact-row">
-          <span class="contact-label">Email</span>
-          <a href="mailto:carolinarap@al.insper.edu.br" class="contact-link">carolinarap@al.insper.edu.br</a>
-        </div>
-        <div class="contact-row">
-          <span class="contact-label">GitHub</span>
-          <a href="https://github.com/carolinarprado" target="_blank" rel="noopener" class="contact-link">github.com/carolinarprado</a>
-        </div>
+    <div>
+      <div style="font-size: 0.73em; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 10px;">Other</div>
+      <div class="teaching-row">
+        <div><span style="font-size: 0.93em; font-weight: 600;">Social Impact Measurement</span><span style="font-size: 0.8em; color: var(--muted); margin-left: 6px;">— Teaching Assistant (Exec. Ed.)</span></div>
+        <span style="font-size: 0.78em; color: var(--muted); white-space: nowrap;">Insper, 2024</span>
       </div>
-    </section>
+      <div class="teaching-row">
+        <div><span style="font-size: 0.93em; font-weight: 600;">Econometrics</span><span style="font-size: 0.8em; color: var(--muted); margin-left: 6px;">— Teaching Assistant (Trainee)</span></div>
+        <span style="font-size: 0.78em; color: var(--muted); white-space: nowrap;">Folha de S.Paulo, 2024</span>
+      </div>
+      <div class="teaching-row">
+        <div><span style="font-size: 0.93em; font-weight: 600;">Mathematics</span><span style="font-size: 0.8em; color: var(--muted); margin-left: 6px;">— Teacher, Middle School</span></div>
+        <span style="font-size: 0.78em; color: var(--muted); white-space: nowrap;">Prefeitura de Caruaru/PE, 2021–2023</span>
+      </div>
+    </div>
+  </section>
 
-  </main>
-</div>
+  <!-- Books -->
+  <section id="books" class="tab-section">
+    <h2 style="font-size: 1.75em; font-weight: 400; margin-bottom: 28px; letter-spacing: -0.01em;">Books</h2>
 
-<script>
-  // ── Tab navigation ──────────────────────────────────────────
+    <div style="margin-bottom: 20px;">
+      <div style="font-size: 0.73em; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px;">Co-authored</div>
+      <div style="font-size: 1em; font-weight: 600; line-height: 1.4;">Planejamento e Transformação: 4º Ano</div>
+      <div style="font-size: 0.83em; color: var(--muted); margin-top: 4px;">Gênio das Finanças – Arco Educação, 2023</div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <button class="carousel-btn" id="prev-btn" aria-label="Anterior">‹</button>
+        <div id="carousel-frame" style="overflow: hidden; position: relative; border-radius: 3px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); background: #f0ede8; flex-shrink: 0; width: 300px; height: 380px; transition: width 0.28s ease, height 0.28s ease;">
+          <img src="assets/capa.jpeg" alt="Book" id="carousel-img" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+        </div>
+        <button class="carousel-btn" id="next-btn" aria-label="Próximo">›</button>
+      </div>
+      <div id="carousel-counter" style="font-size: 0.73em; color: var(--muted); padding-left: 48px;">1 / 5</div>
+    </div>
+  </section>
+
+</main>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // ── Tab navigation ──
   const navLinks = document.querySelectorAll('.tab-link[data-tab]');
   const sections = document.querySelectorAll('.tab-section');
 
@@ -592,10 +267,11 @@
       sections.forEach(s => s.classList.remove('active'));
       this.classList.add('active');
       document.getElementById(tab).classList.add('active');
+      window.scrollTo({ top: 0 });
     });
   });
 
-  // ── Abstract toggle ─────────────────────────────────────────
+  // ── Abstract toggle ──
   const abstractBtn = document.getElementById('abstract-btn');
   const abstractText = document.getElementById('abstract-text');
   if (abstractBtn && abstractText) {
@@ -607,7 +283,7 @@
     });
   }
 
-  // ── Book carousel ────────────────────────────────────────────
+  // ── Book carousel ──
   const BOOK_IMAGES = [
     { src: 'assets/capa.jpeg',       w: 300, h: 380 },
     { src: 'assets/contracapa.jpeg', w: 560, h: 380 },
@@ -619,17 +295,16 @@
   let currentIdx = 0;
   let isAnimating = false;
 
-  const frame    = document.getElementById('carousel-frame');
-  const img      = document.getElementById('carousel-img');
-  const counter  = document.getElementById('carousel-counter');
-  const prevBtn  = document.getElementById('prev-btn');
-  const nextBtn  = document.getElementById('next-btn');
+  const frame   = document.getElementById('carousel-frame');
+  const img     = document.getElementById('carousel-img');
+  const counter = document.getElementById('carousel-counter');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
 
   function goTo(direction) {
-    if (isAnimating) return;
+    if (isAnimating || !frame || !img) return;
     isAnimating = true;
 
-    // Exit current image
     img.style.transition = 'transform 0.26s ease, opacity 0.26s ease';
     img.style.transform  = `translateX(${direction * -60}px)`;
     img.style.opacity    = '0';
@@ -638,23 +313,20 @@
       currentIdx = (currentIdx + direction + BOOK_IMAGES.length) % BOOK_IMAGES.length;
       const next = BOOK_IMAGES[currentIdx];
 
-      // Resize frame
       frame.style.width  = next.w + 'px';
       frame.style.height = next.h + 'px';
 
-      // Swap image, enter from opposite side
       img.style.transition = 'none';
       img.style.transform  = `translateX(${direction * 60}px)`;
       img.style.opacity    = '0';
       img.src = next.src;
 
-      // Force reflow then animate in
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           img.style.transition = 'transform 0.26s ease, opacity 0.26s ease';
           img.style.transform  = 'translateX(0)';
           img.style.opacity    = '1';
-          counter.textContent  = `${currentIdx + 1} / ${BOOK_IMAGES.length}`;
+          if (counter) counter.textContent = `${currentIdx + 1} / ${BOOK_IMAGES.length}`;
           setTimeout(() => { isAnimating = false; }, 280);
         });
       });
@@ -663,6 +335,9 @@
 
   if (prevBtn) prevBtn.addEventListener('click', () => goTo(-1));
   if (nextBtn) nextBtn.addEventListener('click', () => goTo(1));
+
+  // ── Slides link — replace # with your slides URL when ready ──
+  // document.getElementById('slides-link').href = 'https://...';
 </script>
 </body>
 </html>
