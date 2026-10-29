@@ -294,18 +294,27 @@
     });
   });
 
-  // ── Abstract toggle ──
-  const abstractBtn = document.getElementById('abstract-btn');
-  const abstractText = document.getElementById('abstract-text');
-  if (abstractBtn && abstractText) {
-    abstractBtn.addEventListener('click', function() {
-      const open = abstractText.style.display !== 'none';
-      abstractText.style.display = open ? 'none' : 'block';
-      abstractBtn.textContent = open ? '▼ Show abstract' : '▲ Hide abstract';
-      abstractBtn.setAttribute('aria-expanded', String(!open));
-    });
-  }
 
+ // ── Abstract toggle ──
+function setupAbstract(buttonId, textId) {
+  const button = document.getElementById(buttonId);
+  const text = document.getElementById(textId);
+
+  if (!button || !text) return;
+
+  button.setAttribute('aria-controls', textId);
+
+  button.addEventListener('click', function() {
+    const open = button.getAttribute('aria-expanded') === 'true';
+
+    text.style.display = open ? 'none' : 'block';
+    button.textContent = open ? '▼ Show abstract' : '▲ Hide abstract';
+    button.setAttribute('aria-expanded', String(!open));
+  });
+}
+
+setupAbstract('abstract-btn', 'abstract-text');
+setupAbstract('abstract-btn-2', 'abstract-text-2');
   // ── Book carousel ──
   const BOOK_IMAGES = [
     { src: 'assets/capa.jpeg',       w: 300, h: 380 },
